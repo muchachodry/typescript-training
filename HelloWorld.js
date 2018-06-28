@@ -1,8 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var Singleton_1 = require("./Singleton");
 var Startup = /** @class */ (function () {
     function Startup() {
     }
     Startup.main = function () {
         console.log('Starting Tutorial');
+        //Singleton func example
+        console.log(Singleton_1.Singleton.getInstance().getHelloWorld());
+        console.log(Singleton_1.DIAS.Lunes.toString());
         /*types*/
         /*Se permite el tipado debil (No se especifica el tipo)*/
         var a = 3;
@@ -49,9 +55,70 @@ var Startup = /** @class */ (function () {
         // Inicialización incorrecta
         //x = [10, "hello"]; // Error
         console.log(x[0].substr(1));
+        var Direction;
+        (function (Direction) {
+            Direction["Up"] = "w";
+            Direction["Down"] = "s";
+            Direction["Izquierda"] = "a";
+            Direction["Derecha"] = "d";
+        })(Direction || (Direction = {}));
+        var d = Direction.Derecha;
+        console.log(Direction.Down);
+        var Color;
+        (function (Color) {
+            Color[Color["Red"] = 0] = "Red";
+            Color[Color["Green"] = 1] = "Green";
+            Color[Color["Blue"] = 2] = "Blue";
+        })(Color || (Color = {}));
+        ;
+        var e = Color.Green;
+        var Color1;
+        (function (Color1) {
+            Color1[Color1["Red"] = 1] = "Red";
+            Color1[Color1["Green"] = 2] = "Green";
+            Color1[Color1["Blue"] = 3] = "Blue";
+        })(Color1 || (Color1 = {}));
+        ;
+        var colorName = Color[2];
+        console.log(colorName);
+        // FOO
+        var FooIdBrand;
+        (function (FooIdBrand) {
+        })(FooIdBrand || (FooIdBrand = {}));
+        // BAR
+        var BarIdBrand;
+        (function (BarIdBrand) {
+        })(BarIdBrand || (BarIdBrand = {}));
+        /**
+        * Demo
+        */
+        var fooId;
+        var barId;
+        // Por seguridad
+        // fooId = barId; // error
+        //barId = fooId; // error
+        // Newing up
+        fooId = 'foo';
+        barId = 'bar';
+        // Los dos tipos son compatibles con la base
+        // que en este caso es string
+        var str;
+        str = fooId;
+        str = barId;
+        ej1();
         return 0;
     };
     return Startup;
 }());
+function ej1() {
+    var notsure = 4;
+    notsure = "maybe a string instead"; // typeof = string
+    notsure = false;
+    ; // typeof = boolean
+    var prettySure = 4;
+    prettySure.constructor.length;
+    var list = [1, true, "free"];
+    list[1] = 100;
+}
 Startup.main();
 //# sourceMappingURL=HelloWorld.js.map

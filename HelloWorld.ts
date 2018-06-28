@@ -1,7 +1,13 @@
+import { Singleton, DIAS } from "./Singleton";
+
 class Startup {
     public static main(): number {
         console.log('Starting Tutorial');
 
+
+        //Singleton func example
+        console.log(Singleton.getInstance().getHelloWorld());
+        console.log(DIAS.Lunes.toString()  );
         /*types*/
         /*Se permite el tipado debil (No se especifica el tipo)*/
         var a = 3;
@@ -57,8 +63,72 @@ class Startup {
         // Inicialización incorrecta
         //x = [10, "hello"]; // Error
         console.log(x[0].substr(1)); 
+
+        enum Direction{
+            Up = "w",
+            Down = "s",
+            Izquierda = "a",
+            Derecha = "d"
+        }
+
+        var d = Direction.Derecha;
+        console.log(Direction.Down);
+
+        enum Color{Red,Green,Blue};
+        let e: Color = Color.Green;
+
+        enum Color1 {Red = 1, Green, Blue};
+        let colorName: string = Color[2];
+        console.log(colorName);
+
+        // FOO
+        enum FooIdBrand {}
+        type FooId = FooIdBrand & string;
+       
+        // BAR
+        enum BarIdBrand {}
+        type BarId = BarIdBrand & string;
+       
+        /**
+        * Demo
+        */
+        var fooId: FooId;
+        var barId: BarId;
+        
+        // Por seguridad
+       // fooId = barId; // error
+        //barId = fooId; // error
+        
+        // Newing up
+        fooId = 'foo' as FooId;
+        barId = 'bar' as BarId;
+       
+        // Los dos tipos son compatibles con la base
+        // que en este caso es string
+        var str: string;
+        str = fooId;
+        str = barId;
+
+        ej1();
+
+
+
+
+
         return 0;
     }
+}
+
+function ej1(): void {
+    
+    let notsure: any = 4;
+    notsure = "maybe a string instead"; // typeof = string
+    notsure = false;; // typeof = boolean
+
+    let prettySure: Object = 4;
+    prettySure.constructor.length
+    let list: any[] = [1, true, "free"];
+    list[1] = 100;
 }
 
 Startup.main();
