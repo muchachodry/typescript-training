@@ -8,6 +8,10 @@ class Startup {
         //Singleton func example
         console.log(Singleton.getInstance().getHelloWorld());
         console.log(DIAS.Lunes.toString()  );
+        let a={miprop:"hola"}
+        let b={a}; // {a:{miprop:"hola"}}
+        let c={...a,...b}: // {miprop:hola,a:{mipop:hola}}
+
         /*types*/
         /*Se permite el tipado debil (No se especifica el tipo)*/
         var a = 3;
